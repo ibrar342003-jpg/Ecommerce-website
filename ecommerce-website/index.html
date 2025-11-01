@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopNow - Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+  <div class="logo">
+    <img src="images/logo.png" alt="ShopNow Logo" />
+    <h1>ShopNow</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">🏠Home</a></li>
+      <li><a href="cart.html">🛒Cart</a></li>
+      <li><a href="checkout.html">💳Checkout</a></li>
+      <li><a href="login.html">🔐Login</a></li>
+      <li><a href="register.html">🆕Register</a></li>
+      <li><a href="admin.html">🛠️Admin</a></li> <!-- Create this page next -->
+    </ul>
+  </nav>
+  </div>
+</header>
+
+
+  <main class="product-grid">
+
+  <!-- Wireless Headphones -->
+<div class="product-card">
+  <img src="images/product1.jpg" alt="Wireless Headphones" onclick="viewProductById(1)">
+  <h3>Wireless Headphones</h3>
+  <p>$99.00</p>
+  <div class="card-buttons">
+    <button onclick="viewProductById(1)">View</button>
+    <button onclick="addToCartById(1)">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Smart Watch -->
+<div class="product-card">
+  <img src="images/product2.jpg" alt="Smart Watch" onclick="viewProductById(2)">
+  <h3>Smart Watch</h3>
+  <p>$149.00</p>
+  <div class="card-buttons">
+    <button onclick="viewProductById(2)">View</button>
+    <button onclick="addToCartById(2)">Add to Cart</button>
+  </div>
+</div>
+
+<!-- Bluetooth Speaker -->
+<div class="product-card">
+  <img src="images/product3.jpg" alt="Bluetooth Speaker" onclick="viewProductById(3)">
+  <h3>Bluetooth Speaker</h3>
+  <p>$59.00</p>
+  <div class="card-buttons">
+    <button onclick="viewProductById(3)">View</button>
+    <button onclick="addToCartById(3)">Add to Cart</button>
+  </div>
+</div>
+</div>
+
+
+</main>
+
+  </main>
+  <footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="images/logo.png" alt="ShopNow Logo" />
+      <h2>ShopNow</h2>
+    </div>
+    <p>&copy; 2025 ShopNow. All rights reserved.</p>
+  </div>
+</footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>

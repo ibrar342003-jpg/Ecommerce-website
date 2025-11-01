@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <main class="product-detail-container">
+    <div class="product-detail-card">
+      <img id="productImage" src="" alt="Product Image" />
+      <div class="product-detail-info">
+        <h2 id="productName">Product Name</h2>
+        <p id="productDescription">Loading description...</p>
+        <h3 id="productPrice">$0.00</h3>
+
+        <div class="product-actions">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" value="1" min="1" />
+          <button onclick="addToCartFromDetails()">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+      if (product) {
+        document.getElementById("productImage").src = product.image;
+        document.getElementById("productName").innerText = product.name;
+        document.getElementById("productDescription").innerText = product.description;
+        document.getElementById("productPrice").innerText = `$${product.price.toFixed(2)}`;
+      } else {
+        document.querySelector("main").innerHTML = "<p>❌ Product not found!</p>";
+      }
+    });
+
+    function addToCartFromDetails() {
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const product = JSON.parse(localStorage.getItem("selectedProduct"));
+
+      if (!product || quantity <= 0) {
+        alert("Invalid quantity or product");
+        return;
+      }
+
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+      const existing = cart.find(item => item.id === product.id);
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ ...product, quantity });
+      }
+
+      localStorage.setItem("cart", JSON.stringify(cart));
+      alert(`${product.name} (x${quantity}) added to cart!`);
+    }
+  </script>
+
+</body>
+</html>
